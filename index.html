@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="description"
         content="Consultoria AWS — Especialista certificado (Cloud Practitioner & Developer Associate). Arquitetura, migração, automação, custo e workshops." />
-    <title>Consultor AWS — Felipe Cordeiro Ramos</title>
+    <title id="page_title">Consultor AWS — Felipe Cordeiro Ramos</title>
 
     <!-- Google Font (opcional) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -81,6 +81,30 @@
             color: var(--muted);
             text-decoration: none;
             font-weight: 600
+        }
+
+        /* language selector */
+        .lang-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .lang-btn {
+            padding: 8px 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            background: white;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .lang-select {
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            background: white;
+            font-weight: 600;
         }
 
         .hero {
@@ -254,35 +278,48 @@
                 <div class="logo" aria-hidden="true">AWS</div>
                 <div>
                     <div style="font-weight:700">Felipe Cordeiro Ramos</div>
-                    <div style="font-size:13px;color:var(--muted)">Consultor AWS • Cloud Practitioner & Developer</div>
+                    <div id="sub_title" style="font-size:13px;color:var(--muted)">Consultor AWS • Cloud Practitioner &
+                        Developer</div>
                 </div>
             </a>
 
+            <!-- LANGUAGE SWITCH -->
+            <div class="lang-wrap" aria-hidden="false">
+                <!-- botão estilizado para exibir o idioma atual (apenas visual) -->
+                <div class="lang-btn" id="langDisplay" aria-hidden="true">PT</div>
+                <select id="langSwitcher" class="lang-select" aria-label="Selecionar idioma">
+                    <option value="pt">PT</option>
+                    <option value="en">EN</option>
+                </select>
+            </div>
+
             <nav aria-label="Menu principal">
-                <a href="#sobre">Sobre</a>
-                <a href="#servicos">Serviços</a>
-                <a href="#certificacoes">Certificações</a>
-                <a href="#contato">Contato</a>
+                <a id="m_sobre" href="#sobre">Sobre</a>
+                <a id="m_servicos" href="#servicos">Serviços</a>
+                <a id="m_certs" href="#certificacoes">Certificações</a>
+                <a id="m_contato" href="#contato">Contato</a>
             </nav>
         </header>
 
         <main>
             <section class="hero" aria-labelledby="hero-title">
                 <div>
-                    <span class="badge">Consultoria AWS</span>
-                    <h1 id="hero-title">Arquitetura, automação e deploy na AWS — seguro e econômico</h1>
-                    <p>Sou consultor certificado AWS (Cloud Practitioner & Developer Associate). Ajudo empresas a
+                    <span class="badge" id="t_consultoria">Consultoria AWS</span>
+                    <h1 id="t_hero_title">Arquitetura, automação e deploy na AWS — seguro e econômico</h1>
+                    <p id="t_hero_desc">Sou consultor certificado AWS (Cloud Practitioner & Developer Associate). Ajudo
+                        empresas a
                         projetar arquiteturas escaláveis, reduzir custos na nuvem, automatizar deploys e capacitar times
                         com workshops práticos.</p>
 
                     <div class="cta-group">
-                        <a href="#contato" class="btn btn-primary" title="Solicitar uma avaliação gratuita"> Solicitar
+                        <a id="t_cta1" href="#contato" class="btn btn-primary" title="Solicitar uma avaliação gratuita">
+                            Solicitar
                             avaliação gratuita </a>
-                        <a href="#servicos" class="btn btn-ghost" title="Ver serviços">Ver serviços</a>
+                        <a id="t_cta2" href="#servicos" class="btn btn-ghost" title="Ver serviços">Ver serviços</a>
                     </div>
 
                     <div style="margin-top:16px;">
-                        <strong>Áreas:</strong>
+                        <strong id="t_areas_label">Áreas:</strong>
                         <div class="skills" aria-hidden="false">
                             <span class="skill">Migração para AWS</span>
                             <span class="skill">Infra como Código (CloudFormation/Terraform)</span>
@@ -295,7 +332,8 @@
 
                 <aside class="hero-card" aria-labelledby="resume-title">
                     <h3 id="resume-title" style="margin-top:0">Destaques rápidos</h3>
-                    <p style="color:var(--muted);margin:6px 0 12px;font-size:14px">Projetos para startups e médias
+                    <p id="t_highlights" style="color:var(--muted);margin:6px 0 12px;font-size:14px">Projetos para
+                        startups e médias
                         empresas: redução média de custos de 30% com right-sizing e reservas, pipelines automatizadas e
                         disponibilidade alta.</p>
 
@@ -307,8 +345,9 @@
                                     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                             <div>
-                                <div style="font-weight:700">AWS Certified Cloud Practitioner</div>
-                                <div style="font-size:13px;color:var(--muted)">Fundamentos da AWS • Visão de custo e
+                                <div style="font-weight:700" id="cert1_title">AWS Certified Cloud Practitioner</div>
+                                <div style="font-size:13px;color:var(--muted)" id="cert1_desc">Fundamentos da AWS •
+                                    Visão de custo e
                                     segurança</div>
                             </div>
                         </div>
@@ -318,49 +357,53 @@
                                 <rect x="3" y="3" width="18" height="14" rx="2" stroke="#7c4dff" stroke-width="1.5" />
                             </svg>
                             <div>
-                                <div style="font-weight:700">AWS Certified Developer – Associate</div>
-                                <div style="font-size:13px;color:var(--muted)">Desenvolvimento, APIs, integração e
+                                <div style="font-weight:700" id="cert2_title">AWS Certified Developer – Associate</div>
+                                <div style="font-size:13px;color:var(--muted)" id="cert2_desc">Desenvolvimento, APIs,
+                                    integração e
                                     deploy</div>
                             </div>
                         </div>
                     </div>
 
                     <div style="margin-top:14px;font-size:13px">
-                        <strong>Entrega típica:</strong>
-                        <div style="color:var(--muted);margin-top:6px">Avaliação → Proposta técnica → Implementação →
-                            Validação e treinamento.</div>
+                        <strong id="t_entrega_title">Entrega típica:</strong>
+                        <div id="t_entrega_desc" style="color:var(--muted);margin-top:6px">Avaliação → Proposta técnica
+                            → Implementação → Validação e treinamento.</div>
                     </div>
                 </aside>
             </section>
 
             <section id="servicos" aria-labelledby="servicos-title">
-                <h2 id="servicos-title">Serviços</h2>
+                <h2 id="servicos_title">Serviços</h2>
                 <div class="grid-3" role="list">
                     <article class="card" role="listitem">
-                        <h3>Arquitetura & Design</h3>
-                        <p style="color:var(--muted)">Projetos escaláveis e resilientes (multi-AZ), definição de VPC,
+                        <h3 id="s1_title">Arquitetura & Design</h3>
+                        <p id="s1_desc" style="color:var(--muted)">Projetos escaláveis e resilientes (multi-AZ),
+                            definição de VPC,
                             redes, padrões de segurança e disaster recovery.</p>
-                        <ul style="color:var(--muted);margin:10px 0 0;padding-left:18px">
+                        <ul style="color:var(--muted);margin:10px 0 0;padding-left:18px" id="s1_list">
                             <li>Desenho arquitetural</li>
                             <li>Revisão de segurança (IAM, KMS, ACLs)</li>
                         </ul>
                     </article>
 
                     <article class="card" role="listitem">
-                        <h3>Automação & Infra as Code</h3>
-                        <p style="color:var(--muted)">CloudFormation, Terraform, pipelines de CI/CD e boas práticas de
+                        <h3 id="s2_title">Automação & Infra as Code</h3>
+                        <p id="s2_desc" style="color:var(--muted)">CloudFormation, Terraform, pipelines de CI/CD e boas
+                            práticas de
                             versionamento de infraestrutura.</p>
-                        <ul style="color:var(--muted);margin:10px 0 0;padding-left:18px">
+                        <ul style="color:var(--muted);margin:10px 0 0;padding-left:18px" id="s2_list">
                             <li>Templates reusáveis</li>
                             <li>CI/CD com testes e rollback</li>
                         </ul>
                     </article>
 
                     <article class="card" role="listitem">
-                        <h3>Otimização de custos</h3>
-                        <p style="color:var(--muted)">Análise de faturas, recomendações de savings plans/reserved
+                        <h3 id="s3_title">Otimização de custos</h3>
+                        <p id="s3_desc" style="color:var(--muted)">Análise de faturas, recomendações de savings
+                            plans/reserved
                             instances e right-sizing.</p>
-                        <ul style="color:var(--muted);margin:10px 0 0;padding-left:18px">
+                        <ul style="color:var(--muted);margin:10px 0 0;padding-left:18px" id="s3_list">
                             <li>Relatório com ações priorizadas</li>
                         </ul>
                     </article>
@@ -368,72 +411,80 @@
             </section>
 
             <section id="certificacoes" aria-labelledby="certs-title">
-                <h2 id="certs-title">Certificações</h2>
-                <p style="color:var(--muted);margin-top:6px">Comprovações oficiais podem ser compartilhadas mediante
+                <h2 id="certs_title">Certificações</h2>
+                <p id="certs_desc" style="color:var(--muted);margin-top:6px">Comprovações oficiais podem ser
+                    compartilhadas mediante
                     solicitação. Principais certificações:</p>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
                     <div class="card" style="min-width:220px">
-                        <strong>AWS Certified Cloud Practitioner</strong>
-                        <div style="color:var(--muted);font-size:13px;margin-top:6px">Visão geral da nuvem AWS —
+                        <strong id="cert_card1">AWS Certified Cloud Practitioner</strong>
+                        <div id="cert_card1_desc" style="color:var(--muted);font-size:13px;margin-top:6px">Visão geral
+                            da nuvem AWS —
                             fundamentos de nuvem, segurança e preços.</div>
                     </div>
                     <div class="card" style="min-width:220px">
-                        <strong>AWS Certified Developer – Associate</strong>
-                        <div style="color:var(--muted);font-size:13px;margin-top:6px">Desenvolvimento e manutenção de
+                        <strong id="cert_card2">AWS Certified Developer – Associate</strong>
+                        <div id="cert_card2_desc" style="color:var(--muted);font-size:13px;margin-top:6px">
+                            Desenvolvimento e manutenção de
                             aplicações na AWS, integração e deploy.</div>
                     </div>
                 </div>
             </section>
 
             <section id="depoimentos" aria-labelledby="dep-title">
-                <h2 id="dep-title">Depoimentos</h2>
+                <h2 id="dep_title">Depoimentos</h2>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
                     <div class="card">
-                        <p style="margin:0 0 8px;font-style:italic">"A arquitetura proposta reduziu custos em 35% e
+                        <p id="dep1_text" style="margin:0 0 8px;font-style:italic">"A arquitetura proposta reduziu
+                            custos em 35% e
                             aumentou a confiabilidade do nosso serviço."</p>
-                        <div style="color:var(--muted);font-size:13px">— CTO, Startup de Fintech</div>
+                        <div id="dep1_author" style="color:var(--muted);font-size:13px">— CTO, Startup de Fintech</div>
                     </div>
                     <div class="card">
-                        <p style="margin:0 0 8px;font-style:italic">"Ótima condução do workshop — equipe capacitada a
+                        <p id="dep2_text" style="margin:0 0 8px;font-style:italic">"Ótima condução do workshop — equipe
+                            capacitada a
                             operar o pipeline em produção."</p>
-                        <div style="color:var(--muted);font-size:13px">— Head de Engenharia, Marketplace</div>
+                        <div id="dep2_author" style="color:var(--muted);font-size:13px">— Head de Engenharia,
+                            Marketplace</div>
                     </div>
                 </div>
             </section>
 
             <section id="contato" aria-labelledby="contato-title">
-                <h2 id="contato-title">Vamos conversar?</h2>
+                <h2 id="contato_title">Vamos conversar?</h2>
                 <div style="display:grid;grid-template-columns:1fr 420px;gap:18px;margin-top:12px">
                     <div class="card">
-                        <p style="color:var(--muted)">Preencha abaixo e eu responderei em até 48 horas com uma proposta
+                        <p id="contato_intro" style="color:var(--muted)">Preencha abaixo e eu responderei em até 48
+                            horas com uma proposta
                             inicial (ou agende um horário para avaliação gratuita).</p>
 
                         <form class="contact-form" onsubmit="handleSubmit(event)" aria-label="Formulário de contato">
-                            <label for="name">Nome</label>
+                            <label for="name" id="label_name">Nome</label>
                             <input id="name" name="name" type="text" required placeholder="Seu nome completo" />
 
-                            <label for="company">Empresa</label>
+                            <label for="company" id="label_company">Empresa</label>
                             <input id="company" name="company" type="text" placeholder="Nome da empresa (opcional)" />
 
-                            <label for="email">E-mail</label>
+                            <label for="email" id="label_email">E-mail</label>
                             <input id="email" name="email" type="email" required placeholder="seu@exemplo.com" />
 
-                            <label for="budget">Orçamento / Prazo</label>
+                            <label for="budget" id="label_budget">Orçamento / Prazo</label>
                             <select id="budget" name="budget" aria-label="Orçamento ou urgência">
-                                <option value="">Selecionar</option>
-                                <option value="avaliacao">Só avaliação / consultoria</option>
-                                <option value="pequeno">Projeto pequeno (até 1 mês)</option>
-                                <option value="medio">Projeto médio (1-3 meses)</option>
-                                <option value="grande">Projeto maior (3+ meses)</option>
+                                <option value="">{Opt_select_text()}</option>
+                                <option value="avaliacao" id="opt_avaliacao">Só avaliação / consultoria</option>
+                                <option value="pequeno" id="opt_pequeno">Projeto pequeno (até 1 mês)</option>
+                                <option value="medio" id="opt_medio">Projeto médio (1-3 meses)</option>
+                                <option value="grande" id="opt_grande">Projeto maior (3+ meses)</option>
                             </select>
 
-                            <label for="message">Mensagem</label>
+                            <label for="message" id="label_message">Mensagem</label>
                             <textarea id="message" name="message" rows="5"
                                 placeholder="Descreva o desafio ou objetivo"></textarea>
 
                             <div style="display:flex;gap:10px;margin-top:6px">
-                                <button type="submit" class="btn btn-primary">Enviar mensagem</button>
-                                <a href="mailto:felipe.c.ramos@hotmail.com" class="btn btn-ghost">Enviar por e-mail</a>
+                                <button type="submit" class="btn btn-primary" id="submit_btn">Enviar mensagem</button>
+                                <a id="mailto_btn" href="mailto:felipe.c.ramos@hotmail.com" class="btn btn-ghost">Enviar
+                                    por e-mail</a>
                             </div>
 
                             <div id="form-feedback" role="status"
@@ -442,15 +493,19 @@
                     </div>
 
                     <aside class="card" aria-label="Informações de contato">
-                        <h3>Contato</h3>
-                        <p style="margin:6px 0;color:var(--muted)">
-                            <strong>E-mail:</strong> felipe.c.ramos@hotmail.com<br>
-                            <strong>LinkedIn:</strong> https://www.linkedin.com/in/felipe-cordeiro-ramos/<br>
-                            <strong>Local:</strong> Santos, São Paulo, Brasil
+                        <h3 id="contact_info_title">Contato</h3>
+                        <p id="contact_info_text" style="margin:6px 0;color:var(--muted)">
+                            <strong id="label_email_info">E-mail:</strong> <span
+                                id="email_text">felipe.c.ramos@hotmail.com</span><br>
+                            <strong id="label_linkedin">LinkedIn:</strong> <a id="linkedin_link"
+                                href="https://www.linkedin.com/in/felipe-cordeiro-ramos/" target="_blank"
+                                rel="noopener">https://www.linkedin.com/in/felipe-cordeiro-ramos/</a><br>
+                            <strong id="label_location">Local:</strong> Santos, São Paulo, Brasil
                         </p>
 
-                        <h4 style="margin-top:12px">Agendamento</h4>
-                        <p style="color:var(--muted);font-size:13px">Se preferir, encaminhe um horário sugerido por
+                        <h4 id="schedule_title" style="margin-top:12px">Agendamento</h4>
+                        <p id="schedule_text" style="color:var(--muted);font-size:13px">Se preferir, encaminhe um
+                            horário sugerido por
                             e-mail e eu confirmo a reunião.</p>
                     </aside>
                 </div>
@@ -458,7 +513,8 @@
         </main>
 
         <footer>
-            <div>© <span id="year"></span> Felipe Cordeiro Ramos — Consultoria AWS • Cloud Practitioner & Developer
+            <div id="footer_text">© <span id="year"></span> Felipe Cordeiro Ramos — Consultoria AWS • Cloud Practitioner
+                & Developer
                 Associate</div>
         </footer>
     </div>
@@ -473,27 +529,272 @@
             const email = document.getElementById('email').value.trim();
             // validação simples
             const feedback = document.getElementById('form-feedback');
+            const lang = localStorage.getItem('siteLang') || 'pt';
             if (!name || !email) {
-                feedback.textContent = "Por favor preencha nome e e-mail.";
+                feedback.textContent = (lang === 'pt') ? "Por favor preencha nome e e-mail." : "Please fill in name and email.";
                 return;
             }
             // sem backend: gera um mailto como fallback
-            const subject = encodeURIComponent("Contato via site — " + name);
+            const subject = encodeURIComponent((lang === 'pt' ? "Contato via site — " : "Contact via site — ") + name);
             const body = encodeURIComponent(
-                "Nome: " + name + "\\n" +
-                "Empresa: " + document.getElementById('company').value + "\\n" +
-                "Orçamento/Prazo: " + document.getElementById('budget').value + "\\n\\n" +
-                "Mensagem:\\n" + document.getElementById('message').value
+                (lang === 'pt' ? "Nome: " : "Name: ") + name + "\n" +
+                (lang === 'pt' ? "Empresa: " : "Company: ") + document.getElementById('company').value + "\n" +
+                (lang === 'pt' ? "Orçamento/Prazo: " : "Budget/Timeline: ") + document.getElementById('budget').value + "\n\n" +
+                (lang === 'pt' ? "Mensagem:\n" : "Message:\n") + document.getElementById('message').value
             );
             // abre o cliente de e-mail do usuário
             window.location.href = `mailto:felipe.c.ramos@hotmail.com?subject=${subject}&body=${body}`;
-            feedback.textContent = "Abrindo seu cliente de e-mail para enviar a mensagem...";
+            feedback.textContent = (lang === 'pt') ? "Abrindo seu cliente de e-mail para enviar a mensagem..." : "Opening your email client to send the message...";
         }
 
         // Acessibilidade: permitir foco claro
         document.documentElement.addEventListener('keydown', function (e) {
             if (e.key === 'Tab') { document.documentElement.style.scrollBehavior = 'smooth'; }
         });
+
+        /* ====================
+            SISTEMA DE IDIOMAS
+        =================== */
+        // Traduções - adicione ou ajuste conforme quiser
+        const texts = {
+            pt: {
+                page_title: "Consultor AWS — Felipe Cordeiro Ramos",
+                m_sobre: "Sobre",
+                m_servicos: "Serviços",
+                m_certs: "Certificações",
+                m_contato: "Contato",
+
+                t_consultoria: "Consultoria AWS",
+                t_hero_title: "Arquitetura, automação e deploy na AWS — seguro e econômico",
+                t_hero_desc: "Sou consultor certificado AWS (Cloud Practitioner & Developer Associate). Ajudo empresas a projetar arquiteturas escaláveis, reduzir custos na nuvem, automatizar deploys e capacitar times com workshops práticos.",
+                t_cta1: "Solicitar avaliação gratuita",
+                t_cta2: "Ver serviços",
+                t_areas_label: "Áreas:",
+
+                t_highlights: "Projetos para startups e médias empresas: redução média de custos de 30% com right-sizing e reservas, pipelines automatizadas e disponibilidade alta.",
+                cert1_title: "AWS Certified Cloud Practitioner",
+                cert1_desc: "Fundamentos da AWS • Visão de custo e segurança",
+                cert2_title: "AWS Certified Developer – Associate",
+                cert2_desc: "Desenvolvimento, APIs, integração e deploy",
+                t_entrega_title: "Entrega típica:",
+                t_entrega_desc: "Avaliação → Proposta técnica → Implementação → Validação e treinamento.",
+
+                servicos_title: "Serviços",
+                s1_title: "Arquitetura & Design",
+                s1_desc: "Projetos escaláveis e resilientes (multi-AZ), definição de VPC, redes, padrões de segurança e disaster recovery.",
+                s1_list: "<li>Desenho arquitetural</li><li>Revisão de segurança (IAM, KMS, ACLs)</li>",
+
+                s2_title: "Automação & Infra as Code",
+                s2_desc: "CloudFormation, Terraform, pipelines de CI/CD e boas práticas de versionamento de infraestrutura.",
+                s2_list: "<li>Templates reusáveis</li><li>CI/CD com testes e rollback</li>",
+
+                s3_title: "Otimização de custos",
+                s3_desc: "Análise de faturas, recomendações de savings plans/reserved instances e right-sizing.",
+                s3_list: "<li>Relatório com ações priorizadas</li>",
+
+                certs_title: "Certificações",
+                certs_desc: "Comprovações oficiais podem ser compartilhadas mediante solicitação. Principais certificações:",
+                cert_card1: "AWS Certified Cloud Practitioner",
+                cert_card1_desc: "Visão geral da nuvem AWS — fundamentos de nuvem, segurança e preços.",
+                cert_card2: "AWS Certified Developer – Associate",
+                cert_card2_desc: "Desenvolvimento e manutenção de aplicações na AWS, integração e deploy.",
+
+                dep_title: "Depoimentos",
+                dep1_text: "\"A arquitetura proposta reduziu custos em 35% e aumentou a confiabilidade do nosso serviço.\"",
+                dep1_author: "— CTO, Startup de Fintech",
+                dep2_text: "\"Ótima condução do workshop — equipe capacitada a operar o pipeline em produção.\"",
+                dep2_author: "— Head de Engenharia, Marketplace",
+
+                contato_title: "Vamos conversar?",
+                contato_intro: "Preencha abaixo e eu responderei em até 48 horas com uma proposta inicial (ou agende um horário para avaliação gratuita).",
+                label_name: "Nome",
+                label_company: "Empresa",
+                label_email: "E-mail",
+                label_budget: "Orçamento / Prazo",
+                opt_select_text: "Selecionar",
+                opt_avaliacao: "Só avaliação / consultoria",
+                opt_pequeno: "Projeto pequeno (até 1 mês)",
+                opt_medio: "Projeto médio (1-3 meses)",
+                opt_grande: "Projeto maior (3+ meses)",
+                label_message: "Mensagem",
+                submit_btn: "Enviar mensagem",
+                mailto_btn: "Enviar por e-mail",
+                contact_info_title: "Contato",
+                label_email_info: "E-mail:",
+                email_text: "felipe.c.ramos@hotmail.com",
+                label_linkedin: "LinkedIn:",
+                label_location: "Local:",
+                schedule_title: "Agendamento",
+                schedule_text: "Se preferir, encaminhe um horário sugerido por e-mail e eu confirmo a reunião.",
+
+                footer_text: "© {year} Felipe Cordeiro Ramos — Consultoria AWS • Cloud Practitioner & Developer Associate"
+            },
+
+            en: {
+                page_title: "AWS Consultant — Felipe Cordeiro Ramos",
+                m_sobre: "About",
+                m_servicos: "Services",
+                m_certs: "Certifications",
+                m_contato: "Contact",
+
+                t_consultoria: "AWS Consulting",
+                t_hero_title: "Architecture, automation and deployment on AWS — secure and cost-effective",
+                t_hero_desc: "I am an AWS certified consultant (Cloud Practitioner & Developer Associate). I help companies design scalable architectures, reduce cloud costs, automate deployments and train teams with hands-on workshops.",
+                t_cta1: "Request free assessment",
+                t_cta2: "View services",
+                t_areas_label: "Areas:",
+
+                t_highlights: "Projects for startups and mid-sized companies: average cost reductions of 30% with right-sizing and reservations, automated pipelines and high availability.",
+                cert1_title: "AWS Certified Cloud Practitioner",
+                cert1_desc: "AWS fundamentals • Cost and security overview",
+                cert2_title: "AWS Certified Developer – Associate",
+                cert2_desc: "Development, APIs, integration and deployment",
+                t_entrega_title: "Typical delivery:",
+                t_entrega_desc: "Assessment → Technical proposal → Implementation → Validation and training.",
+
+                servicos_title: "Services",
+                s1_title: "Architecture & Design",
+                s1_desc: "Scalable and resilient designs (multi-AZ), VPC definition, networking, security patterns and disaster recovery.",
+                s1_list: "<li>Architectural design</li><li>Security review (IAM, KMS, ACLs)</li>",
+
+                s2_title: "Automation & Infrastructure as Code",
+                s2_desc: "CloudFormation, Terraform, CI/CD pipelines and infra versioning best practices.",
+                s2_list: "<li>Reusable templates</li><li>CI/CD with tests and rollback</li>",
+
+                s3_title: "Cost optimization",
+                s3_desc: "Invoice analysis, recommendations for savings plans/reserved instances and right-sizing.",
+                s3_list: "<li>Prioritized action report</li>",
+
+                certs_title: "Certifications",
+                certs_desc: "Official proofs can be shared upon request. Main certifications:",
+                cert_card1: "AWS Certified Cloud Practitioner",
+                cert_card1_desc: "AWS cloud overview — cloud fundamentals, security and pricing.",
+                cert_card2: "AWS Certified Developer – Associate",
+                cert_card2_desc: "Development and maintenance of applications on AWS, integration and deployment.",
+
+                dep_title: "Testimonials",
+                dep1_text: "\"The proposed architecture reduced costs by 35% and increased our service reliability.\"",
+                dep1_author: "— CTO, Fintech Startup",
+                dep2_text: "\"Great workshop delivery — team able to operate the pipeline in production.\"",
+                dep2_author: "— Head of Engineering, Marketplace",
+
+                contato_title: "Let's talk?",
+                contato_intro: "Fill the form below and I will reply within 48 hours with an initial proposal (or schedule a free assessment).",
+                label_name: "Name",
+                label_company: "Company",
+                label_email: "Email",
+                label_budget: "Budget / Timeline",
+                opt_select_text: "Select",
+                opt_avaliacao: "Assessment / Consulting only",
+                opt_pequeno: "Small project (up to 1 month)",
+                opt_medio: "Medium project (1-3 months)",
+                opt_grande: "Large project (3+ months)",
+                label_message: "Message",
+                submit_btn: "Send message",
+                mailto_btn: "Send by email",
+                contact_info_title: "Contact",
+                label_email_info: "Email:",
+                email_text: "felipe.c.ramos@hotmail.com",
+                label_linkedin: "LinkedIn:",
+                label_location: "Location:",
+                schedule_title: "Scheduling",
+                schedule_text: "If you prefer, send a suggested time by email and I will confirm the meeting.",
+
+                footer_text: "© {year} Felipe Cordeiro Ramos — AWS Consulting • Cloud Practitioner & Developer Associate"
+            }
+        };
+
+        // helper to set innerHTML or textContent depending on presence of HTML tags in translation
+        function setContentById(id, value, useHTML = false) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            if (useHTML) el.innerHTML = value;
+            else el.textContent = value;
+        }
+
+        function applyLanguage(lang) {
+            // save
+            localStorage.setItem("siteLang", lang);
+            // set lang attribute on html
+            const htmlEl = document.documentElement;
+            if (lang === 'pt') {
+                htmlEl.setAttribute('lang', 'pt-BR');
+                document.getElementById('langDisplay').textContent = 'PT';
+            } else {
+                htmlEl.setAttribute('lang', 'en');
+                document.getElementById('langDisplay').textContent = 'EN';
+            }
+
+            // page title
+            document.title = texts[lang].page_title || document.title;
+            setContentById('page_title', texts[lang].page_title || document.title);
+
+            // straightforward text replacements
+            const plainKeys = [
+                'm_sobre', 'm_servicos', 'm_certs', 'm_contato',
+                't_consultoria', 't_hero_title', 't_hero_desc', 't_cta1', 't_cta2', 't_areas_label',
+                't_highlights', 'cert1_title', 'cert1_desc', 'cert2_title', 'cert2_desc', 't_entrega_title', 't_entrega_desc',
+                'servicos_title', 's1_title', 's1_desc', 's2_title', 's2_desc', 's3_title', 's3_desc',
+                'certs_title', 'certs_desc', 'cert_card1', 'cert_card1_desc', 'cert_card2', 'cert_card2_desc',
+                'dep_title', 'dep1_text', 'dep1_author', 'dep2_text', 'dep2_author',
+                'contato_title', 'contato_intro', 'label_name', 'label_company', 'label_email', 'label_budget',
+                'label_message', 'submit_btn', 'mailto_btn', 'contact_info_title', 'label_email_info', 'email_text',
+                'label_linkedin', 'label_location', 'schedule_title', 'schedule_text'
+            ];
+
+            plainKeys.forEach(k => {
+                if (texts[lang][k] !== undefined) setContentById(k, texts[lang][k]);
+            });
+
+            // lists and HTML content
+            if (texts[lang].s1_list) setContentById('s1_list', texts[lang].s1_list, true);
+            if (texts[lang].s2_list) setContentById('s2_list', texts[lang].s2_list, true);
+            if (texts[lang].s3_list) setContentById('s3_list', texts[lang].s3_list, true);
+
+            // budget select options and placeholder
+            const optSelect = document.querySelector('#budget option[value=""]');
+            if (optSelect) optSelect.textContent = texts[lang].opt_select_text || optSelect.textContent;
+
+            const optMap = [
+                { id: 'opt_avaliacao', key: 'opt_avaliacao' },
+                { id: 'opt_pequeno', key: 'opt_pequeno' },
+                { id: 'opt_medio', key: 'opt_medio' },
+                { id: 'opt_grande', key: 'opt_grande' }
+            ];
+            optMap.forEach(o => {
+                if (texts[lang][o.key]) {
+                    const el = document.getElementById(o.id);
+                    if (el) el.textContent = texts[lang][o.key];
+                }
+            });
+
+            // mailto button text and submit button
+            const submitBtn = document.getElementById('submit_btn');
+            if (submitBtn) submitBtn.textContent = texts[lang].submit_btn || submitBtn.textContent;
+            const mailtoBtn = document.getElementById('mailto_btn');
+            if (mailtoBtn) mailtoBtn.textContent = texts[lang].mailto_btn || mailtoBtn.textContent;
+
+            // footer with year
+            const year = new Date().getFullYear();
+            const footerTemplate = texts[lang].footer_text || texts[lang].page_title;
+            const footerText = footerTemplate.replace('{year}', year);
+            const footerEl = document.getElementById('footer_text');
+            if (footerEl) footerEl.textContent = footerText;
+        }
+
+        // Initialize selector and apply saved language
+        const savedLang = localStorage.getItem('siteLang') || 'pt';
+        const langSwitcher = document.getElementById('langSwitcher');
+        if (langSwitcher) {
+            langSwitcher.value = savedLang;
+            langSwitcher.addEventListener('change', (e) => applyLanguage(e.target.value));
+        }
+        // apply initially
+        applyLanguage(savedLang);
+
+        // small helper exposed for template placeholder in select (not used in HTML directly)
+        function Opt_select_text() { return texts[localStorage.getItem('siteLang') || 'pt'].opt_select_text; }
+
     </script>
 </body>
 
